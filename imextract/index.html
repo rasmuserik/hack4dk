@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>imextract</title>
+        <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="../lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--link rel="apple-touch-icon-precomposed" href="icon.png">
+        <link rel="icon" type="image/png" href="icon.png">
+        <link rel="shortcut icon" href="icon.png"-->
+    </head>
+    <body>
+    <div id=a></div>
+    <div id=b></div>
+    <script src="../lib/d3.v3.js"></script>
+    <script src="../lib/async.js"></script>
+    <script src="../lib/jquery-1.10.2.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.js"></script>
+    <script src="imextract.js"></script>
+    <script>
+        images = [/*"007534061_00001.jpg", "007534061_00002.jpg",*/ "007534061_00003.jpg", "007534061_00004.jpg", "007534061_00005.jpg", "007534061_00006.jpg", "007534061_00007.jpg", "007534061_00008.jpg", "007534061_00009.jpg", "007534061_00010.jpg", "007534061_00011.jpg", "007534061_00012.jpg", "007534061_00013.jpg", "007534061_00014.jpg", "007534061_00015.jpg", "007534061_00016.jpg", "007534061_00017.jpg", "007534061_00018.jpg", "007534061_00019.jpg", "007534061_00020.jpg", "007534061_00021.jpg", "007534061_00022.jpg", "007534061_00023.jpg", "007534061_00024.jpg", "007534061_00025.jpg", "007534061_00026.jpg", "007534061_00027.jpg", "007534061_00028.jpg", "007534061_00029.jpg", "007534061_00030.jpg", "007534061_00031.jpg", "007534061_00032.jpg", "007534061_00033.jpg", "007534061_00034.jpg", "007534061_00112.jpg"];
+        for(var i=0; i < images.length; ++i) {
+            isThatKindOfImage( "imgs/" + images[i], function(yesNo, url) {
+                console.log(url, yesNo);
+                t = yesNo?a:b;
+                t.innerHTML += "<img width=90 height=60 src=" + url + ">"
+            });
+        }
+    </script>
+    <script>document.write('<'+'script src="//ssl.solsort.com/_logger.js'+Math.random()+'""><'+'/script>')</script>
+</body>
+</html>
