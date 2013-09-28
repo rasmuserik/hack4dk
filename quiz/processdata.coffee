@@ -9,7 +9,7 @@ for row in rows
     data.push datum
     year = row[4]
     datum =
-      img: "smk/" + row[2] + ".jpg"
+      src: "smk/" + row[2] + ".jpg"
       title: row[3]
       year: row[4]
       creator: row[5]
@@ -21,7 +21,7 @@ data[0] = datum
 
 result = []
 for datum in data
-  result.push datum if fs.existsSync datum.img
+  result.push datum if fs.existsSync datum.src
 
 fs.writeFile "images.js", "window.images=#{JSON.stringify result}"
-console.log img.img for img in result
+console.log img.src for img in result
