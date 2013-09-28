@@ -35,6 +35,8 @@ for image in images
   years = image.year.match(/[0-9]+/g)
   image.startYear = years[0]
   image.endYear = years[years.length - 1]
+  elem = new Image()
+  elem.src = image.src
 
 slider = ->
   log ["div", {class: "yearContainer"}, ["br"],
