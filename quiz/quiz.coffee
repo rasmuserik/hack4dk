@@ -107,10 +107,11 @@ doLayout = -> #{{{2
   $img = $ "img"
   scale = 1
 
-  #$img.css
-  #  width: "auto"
-  #  height: "auto"
-  if $img.width() then nextTick ->
+  $img.css
+    width: "auto"
+    height: "auto"
+  ($ ".control").css "display", "none"
+  nextTick ->
     iw = $img.width()
     ih = $img.height()
     scale = w/iw # if iw > w
@@ -125,6 +126,7 @@ doLayout = -> #{{{2
       height: Math.round(ih)
     ($ ".control").css
       position: "absolute"
+      display: "block"
       top: Math.round(y0+ih)
       left: yearLeft = Math.round(x0)
       width: Math.round(w)

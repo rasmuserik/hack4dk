@@ -197,74 +197,78 @@
     w *= 0.9;
     $img = $("img");
     scale = 1;
-    if ($img.width()) {
-      return nextTick(function() {
-        var ih, iw;
-        iw = $img.width();
-        ih = $img.height();
-        scale = w / iw;
-        if (scale * ih > h - uiHeight) {
-          scale *= (h - uiHeight) / (scale * ih);
-        }
-        iw = $img.width() * scale;
-        ih = $img.height() * scale;
-        $img.css(log({
-          position: "absolute",
-          top: Math.round(y0),
-          left: Math.round(x0 + (w - iw) / 2),
-          width: Math.round(iw),
-          height: Math.round(ih)
-        }));
-        ($(".control")).css({
-          position: "absolute",
-          top: Math.round(y0 + ih),
-          left: yearLeft = Math.round(x0),
-          width: Math.round(w)
-        });
-        ($(".year")).css({
-          fontSize: "70%",
-          display: "inline-block",
-          width: yearWidth = ((w / 7) | 0) - 1,
-          borderLeft: "1px solid black",
-          margin: 0,
-          padding: 0,
-          height: 25,
-          paddingTop: 5
-        });
-        ($(".yearBox")).css({
-          border: "1px solid black",
-          borderLeft: 0,
-          border: 0,
-          padding: 0,
-          borderRadius: 5,
-          marginTop: 3,
-          marginBottom: 3,
-          boxShadow: "5px 5px 10px rgba(255,255,255,.8) inset," + "-5px -5px 10px rgba(0,0,0,.4) inset," + "0px 0px 10px rgba(255,255,0,1)",
-          overflow: "hidden"
-        });
-        ($(".creator")).css({
-          fontWeight: "bold",
-          display: "inline-block",
-          float: "right"
-        });
-        ($("body")).css({
-          font: "sans-serif",
-          background: "#fed"
-        });
-        return ($("#yearChoice")).css({
-          display: "inline-block",
-          transition: "all 1s",
-          position: "absolute",
-          textAlign: "center",
-          top: y0,
-          color: "#C0FFEE",
-          left: x0,
-          width: w,
-          font: "" + (Math.min(h / 8, w / 6)) + "px sans-serif",
-          textShadow: "0px 0px 20px rgba(0,0,0,1)," + "0px 0px 10px rgba(0,0,0,1)"
-        });
+    $img.css({
+      width: "auto",
+      height: "auto"
+    });
+    ($(".control")).css("display", "none");
+    return nextTick(function() {
+      var ih, iw;
+      iw = $img.width();
+      ih = $img.height();
+      scale = w / iw;
+      if (scale * ih > h - uiHeight) {
+        scale *= (h - uiHeight) / (scale * ih);
+      }
+      iw = $img.width() * scale;
+      ih = $img.height() * scale;
+      $img.css(log({
+        position: "absolute",
+        top: Math.round(y0),
+        left: Math.round(x0 + (w - iw) / 2),
+        width: Math.round(iw),
+        height: Math.round(ih)
+      }));
+      ($(".control")).css({
+        position: "absolute",
+        display: "block",
+        top: Math.round(y0 + ih),
+        left: yearLeft = Math.round(x0),
+        width: Math.round(w)
       });
-    }
+      ($(".year")).css({
+        fontSize: "70%",
+        display: "inline-block",
+        width: yearWidth = ((w / 7) | 0) - 1,
+        borderLeft: "1px solid black",
+        margin: 0,
+        padding: 0,
+        height: 25,
+        paddingTop: 5
+      });
+      ($(".yearBox")).css({
+        border: "1px solid black",
+        borderLeft: 0,
+        border: 0,
+        padding: 0,
+        borderRadius: 5,
+        marginTop: 3,
+        marginBottom: 3,
+        boxShadow: "5px 5px 10px rgba(255,255,255,.8) inset," + "-5px -5px 10px rgba(0,0,0,.4) inset," + "0px 0px 10px rgba(255,255,0,1)",
+        overflow: "hidden"
+      });
+      ($(".creator")).css({
+        fontWeight: "bold",
+        display: "inline-block",
+        float: "right"
+      });
+      ($("body")).css({
+        font: "sans-serif",
+        background: "#fed"
+      });
+      return ($("#yearChoice")).css({
+        display: "inline-block",
+        transition: "all 1s",
+        position: "absolute",
+        textAlign: "center",
+        top: y0,
+        color: "#C0FFEE",
+        left: x0,
+        width: w,
+        font: "" + (Math.min(h / 8, w / 6)) + "px sans-serif",
+        textShadow: "0px 0px 20px rgba(0,0,0,1)," + "0px 0px 10px rgba(0,0,0,1)"
+      });
+    });
   };
 
   calcYear = function(x, y) {
