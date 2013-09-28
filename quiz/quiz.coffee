@@ -167,7 +167,7 @@ doLayout = -> #{{{2
       color: "#C0FFEE"
       left: x0
       width: w
-      font: "#{Math.min(h/4, w/6)}px sans-serif"
+      font: "#{Math.min(h/8, w/6)}px sans-serif"
       textShadow: "0px 0px 20px rgba(0,0,0,1)," +
         "0px 0px 10px rgba(0,0,0,1)"
 
