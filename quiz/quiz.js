@@ -192,7 +192,7 @@
       y0 += ($("h1")).height() * 1.2;
       h -= ($("h1")).height() * 1.2;
     }
-    uiHeight = 120;
+    uiHeight = 100;
     x0 += w * .05;
     w *= 0.9;
     $img = $("img");
@@ -202,10 +202,10 @@
         var ih, iw;
         iw = $img.width();
         ih = $img.height();
-        if (iw > w) {
-          scale = w / iw;
+        scale = w / iw;
+        if (scale * ih > h - uiHeight) {
+          scale *= (h - uiHeight) / (scale * ih);
         }
-        scale *= (h - uiHeight) / (scale * ih);
         iw = $img.width() * scale;
         ih = $img.height() * scale;
         $img.css(log({
@@ -307,11 +307,11 @@
     console.log(currentImage, currentYear);
     elem = document.getElementById("yearChoice");
     if (currentImage.startYear > currentYear + 50 || currentImage.endYear < currentYear) {
-      elem.innerHTML = "Forkert, skabt " + currentImage.year;
+      elem.innerHTML = "Forkert, skabt " + (currentImage.year.toLowerCase());
       elem.style.color = "#F00";
       ++wrongAnswers;
     } else {
-      elem.innerHTML = "Rigtigt skabt " + currentImage.year;
+      elem.innerHTML = "Rigtigt skabt " + (currentImage.year.toLowerCase());
       elem.style.color = "#6c6";
       ++rightAnswers;
     }

@@ -41,8 +41,6 @@ slider = ->
     ["div", {class: "yearBox"}].concat (
       ["span", {class: "year"}, year] for year in [1300..1900] by 100)]
 
-
-
 showQuestion = (image) -> #{{{2
   currentImage = image
   for elem in document.getElementsByClassName "main"
@@ -101,7 +99,7 @@ doLayout = -> #{{{2
     y0 += ($ "h1").height() * 1.2
     h -= ($ "h1").height() * 1.2
 
-  uiHeight = 120
+  uiHeight = 100
   x0 += w *.05
   w *= 0.9
 
@@ -115,8 +113,8 @@ doLayout = -> #{{{2
   if $img.width() then nextTick ->
     iw = $img.width()
     ih = $img.height()
-    scale = w/iw if iw > w
-    scale *= (h-uiHeight)/(scale*ih) # if scale * ih > h - uiHeight
+    scale = w/iw # if iw > w
+    scale *= (h-uiHeight)/(scale*ih) if scale * ih > h - uiHeight
     iw = $img.width() * scale
     ih = $img.height() * scale
     $img.css log
@@ -205,11 +203,11 @@ handleEnd = (x,y) ->
   console.log currentImage, currentYear
   elem = document.getElementById "yearChoice"
   if currentImage.startYear > currentYear + 50 or currentImage.endYear < currentYear
-    elem.innerHTML = "Forkert, skabt #{currentImage.year}"
+    elem.innerHTML = "Forkert, skabt #{currentImage.year.toLowerCase()}"
     elem.style.color = "#F00"
     ++wrongAnswers
   else
-    elem.innerHTML = "Rigtigt skabt #{currentImage.year}"
+    elem.innerHTML = "Rigtigt skabt #{currentImage.year.toLowerCase()}"
     elem.style.color = "#6c6"
     ++rightAnswers
   sleep 2, ->
