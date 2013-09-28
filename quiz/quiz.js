@@ -325,15 +325,17 @@
     showQuestion(pickRand(images));
     window.ontouchstart = function(e) {
       var _ref, _ref1;
+      e.preventDefault();
       return handleStart((_ref = e.touches[0]) != null ? _ref.clientX : void 0, (_ref1 = e.touches[0]) != null ? _ref1.clientY : void 0);
     };
     window.onmousedown = function(e) {
       return handleStart(e.clientX, e.clientY);
     };
     window.onmouseup = handleEnd;
-    window.ontouchrelease = handleEnd;
+    window.ontouchend = handleEnd;
     window.ontouchmove = function(e) {
       var _ref, _ref1;
+      e.preventDefault();
       return handleMove((_ref = e.touches[0]) != null ? _ref.clientX : void 0, (_ref1 = e.touches[0]) != null ? _ref1.clientY : void 0);
     };
     return window.onmousemove = function(e) {

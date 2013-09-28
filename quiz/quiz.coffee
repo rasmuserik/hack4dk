@@ -220,6 +220,6 @@ $ -> #{{{2
   window.ontouchstart = (e) -> e.preventDefault(); handleStart e.touches[0]?.clientX, e.touches[0]?.clientY
   window.onmousedown = (e) -> handleStart e.clientX, e.clientY
   window.onmouseup = handleEnd
-  window.ontouchrelease = handleEnd
+  window.ontouchend = handleEnd
   window.ontouchmove = (e) -> e.preventDefault(); handleMove e.touches[0]?.clientX, e.touches[0]?.clientY
   window.onmousemove = (e) -> handleMove e.clientX, e.clientY
