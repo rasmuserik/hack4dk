@@ -29,7 +29,7 @@
     img = new Image(url);
     img.src = url;
     return img.onload = function() {
-      var canvas, ctx, dx, dy, imData, scale, sum, vector, x, y, _i, _j, _k, _l, _ref, _ref1, _ref2, _ref3;
+      var canvas, ctx, d, dx, dy, imData, scale, sum, vector, x, y, _i, _j, _k, _l, _ref, _ref1, _ref2, _ref3;
       canvas = document.createElement("canvas");
       canvas.width = w;
       canvas.height = h;
@@ -49,7 +49,8 @@
           vector.push(sum);
         }
       }
-      return callback(120 < dist(vector, [3313, 3565, 3600, 3555, 3430, 3424, 3463, 3508, 3600, 3511, 3187, 3357, 3581, 3404, 3099, 3208, 3007, 3354, 3600, 3337, 3566, 3262, 3320, 3290, 3038, 3320, 2949, 3381, 3368, 3560, 3600, 3338, 3561, 3404, 2917, 3298, 2956, 3425, 3580, 3600, 3600, 3600, 3600, 3478, 3262, 3426, 3315, 3554, 3600, 3600]), url);
+      d = dist(vector, [3465, 3557, 3600, 3555, 3474, 3419, 3470, 3531, 3600, 3540, 3450, 3324, 3571, 3464, 3215, 3159, 2971, 3330, 3600, 3315, 3600, 3144, 3233, 3325, 3086, 3366, 2816, 3378, 3275, 3600, 3600, 3243, 3548, 3419, 2819, 3378, 2824, 3445, 3575, 3600, 3600, 3600, 3600, 3473, 3212, 3422, 3262, 3556, 3600, 3600]);
+      return callback(d > 120, url);
     };
   };
 
