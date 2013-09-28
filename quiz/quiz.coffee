@@ -217,9 +217,9 @@ handleEnd = (x,y) ->
 $ -> #{{{2
   ($ window).on "resize", doLayout
   showQuestion pickRand images
-  window.ontouchstart = (e) -> handleStart e.touches[0]?.clientX, e.touches[0]?.clientY
+  window.ontouchstart = (e) -> e.preventDefault(); handleStart e.touches[0]?.clientX, e.touches[0]?.clientY
   window.onmousedown = (e) -> handleStart e.clientX, e.clientY
   window.onmouseup = handleEnd
   window.ontouchrelease = handleEnd
-  window.ontouchmove = (e) -> handleMove e.touches[0]?.clientX, e.touches[0]?.clientY
+  window.ontouchmove = (e) -> e.preventDefault(); handleMove e.touches[0]?.clientX, e.touches[0]?.clientY
   window.onmousemove = (e) -> handleMove e.clientX, e.clientY
